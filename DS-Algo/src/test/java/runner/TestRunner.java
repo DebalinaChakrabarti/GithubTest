@@ -12,7 +12,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		plugin = {"pretty", "html:target/dsalgo.html"}, //reporting purpose
 		monochrome=false,  //console output colour
-		tags = "@tag or @tag1", //tags from feature file
+		tags = "@tag", //tags from feature file
 		features = {"src/test/resources/features"}, //location of feature files
 		glue= "stepDefinition") //location of step definition files
 
