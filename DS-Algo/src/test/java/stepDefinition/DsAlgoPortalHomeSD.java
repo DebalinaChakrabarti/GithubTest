@@ -1,57 +1,105 @@
 package stepDefinition;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.But;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
+import io.cucumber.java.en.*;
+import pageObjects.AlgoPortal;
+import pageObjects.HomePage;
 
-public class DsAlgoPortalHomeSD {
+public class DsAlgoPortalHomeSD extends BaseClass {
+	WebDriver driver = new ChromeDriver();
 
-	@Given("The user opens DS Algo portal link")
-	public void clickPrtal() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("The user opens DS Algo portal link");
-	    
-	}
-	@Then("The user should land in DS Algo portal page")
-	public void landPortalPage() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("The user should land in DS Algo portal page");
+	@Given("User launch Chrome Browser")
+	public void user_launch_chrome_browser() {
+		AP = new AlgoPortal(driver);
 	}
 
-	@Given("The user opens DS Algo portal link again")
-	public void clickPortalAgain() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("The user opens DS Algo portal link again");
-	}
-	@When("The user clicks the 'Get Started' button")
-	public void clickGetStartedButton() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("The user clicks the button");
-	}
-	@Then("The user should be redirected to homepage")
-	public void goToHomePage() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("The user should be redirected to homepage");
+	@Given("User opens URL {string}")
+	public void user_opens_url(String URL) {
+		driver.get(URL);
 	}
 
-	@Given("The user opens Home Page")
-	public void openHomePage() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("The user opens Home Page");
-	}
-	@When("The user clicks 'Data Structures' drop down")
-	public void clickDataSturctureButton() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("The user clicks tData Structure Drop Down");
-	}
-	@Then("The User should see 6 different data structure entries in that dropdown")
-	public void seeDropDown() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("The user should see 6 Diff Data Structure");
+	@Then("User should Land In DS Algo portal page")
+	public void user_should_land_in_ds_algo_portal_page() {
 	}
 
+	@When("User click on Get Started")
+	public void user_click_on_get_started() {
+		AP.clickGetStartedbtn();
+	}
+
+	@Then("User should be redirected to homepage")
+	public void user_should_be_redirected_to_homepage() {
+	}
+
+	@Then("Page title should be {string}")
+	public void page_title_should_be(String title) {
+		Assert.assertEquals(title, driver.getTitle());
+	}
+
+	@Then("User should see six panes with different data structures")
+	public void user_should_see_six_panes_with_different_data_structures() {
+	}
+
+//Home Page
+	@Given("User opens Home Page")
+	public void user_opens_home_page() {
+		HP = new HomePage(driver);
+	}
+
+	@When("User click on Data Structures drop down")
+	public void user_click_on_data_structures_drop_down()  {
+		HP.ClickDrpdwn();
+	}
+
+	@Then("User should see six different data structure entries in that drop down")
+	public void user_should_see_six_different_data_structure_entries_in_that_drop_down() {
+	}
+
+	@When("User click any data structures item from the drop down without Sign in")
+	public void user_click_any_data_structures_item_from_the_drop_down_without_sign_in() {
+		HP.ClickArray();
+	}
+
+	@When("User click on Get Started below the data structure")
+	public void user_click_on_get_started_below_the_data_structure(){
+		HP.ClickGetstartd();
+	}
+
+	@Then("It should alert the user with the message {string}")
+	public void it_should_alert_the_user_with_the_message(String Text) {
+
+		if (driver.getPageSource().contains(Text)) {
+			Assert.assertTrue(true);
+		} else {
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	@When("User click on Sign in")
+	public void user_click_on_sign_in() {
+		HP.ClickSignin();
+	}
+
+	@Then("User should be redirected to Sign in page")
+	public void user_should_be_redirected_to_sign_in_page() {
+	}
+
+	@Then("Page title will be {string}")
+	public void page_title_will_be(String title) {
+		Assert.assertEquals(title, driver.getTitle());
+	}
+
+	@When("User click on Register")
+	public void user_click_on_register() {
+		HP.ClickRegistr();
+	}
+
+	@Then("User should be redirected to Register form")
+	public void user_should_be_redirected_to_register_form() {
+	}
 
 }
