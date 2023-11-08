@@ -1,21 +1,25 @@
-@tag
-Feature: DS Algo Portal and Home Page
-  I want to use this template for my feature file
 
-  @tag1
-  Scenario: DS Algo Portal
-    Given The user opens DS Algo portal link
-    Then The user should land in DS Algo portal page
- 
-  @tag2
-  Scenario: DS Algo Portal Home
-    Given The user opens DS Algo portal link again
-    When The user clicks the 'Get Started' button
-    Then The user should be redirected to homepage
 
-  @tag3
-  Scenario: DS Algo Home Data Structure Drop Down
-    Given The user opens Home Page
-    When The user clicks 'Data Structures' drop down
-    Then The User should see 6 different data structure entries in that dropdown
+Feature: DS Algo Portal
 
+Scenario: DS Algo Portal
+    Given User launch Chrome Browser
+    And User opens URL "https://dsportalapp.herokuapp.com"
+    Then User should Land In DS Algo portal page
+    When User click on Get Started 
+    Then User should be redirected to homepage
+    And Page title should be "NumpyNinja"
+    And User should see six panes with different data structures
+    Given User opens Home Page
+    When  User click on Data Structures drop down
+    Then User should see six different data structure entries in that drop down
+    When User click any data structures item from the drop down without Sign in
+    Then It should alert the user with the message "You are not logged in"
+    When User click on Get Started below the data structure
+    Then It should alert the user with the message "You are not logged in"
+    When User click on Sign in
+    Then User should be redirected to Sign in page
+    And  Page title will be "Login"
+    When User click on Register
+    Then User should be redirected to Register form
+    And  Page title will be "Registration"        
