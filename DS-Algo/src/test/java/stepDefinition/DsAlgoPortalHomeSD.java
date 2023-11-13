@@ -1,19 +1,14 @@
 package stepDefinition;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-
 import io.cucumber.java.en.*;
-import pageObjects.AlgoPortal;
-import pageObjects.HomePage;
+import pageObjects.AlgoPortalHome;
 
 public class DsAlgoPortalHomeSD extends BaseClass {
-	WebDriver driver = new ChromeDriver();
 
 	@Given("User launch Chrome Browser")
 	public void user_launch_chrome_browser() {
-		AP = new AlgoPortal(driver);
+		AP = new AlgoPortalHome(driver);
 	}
 
 	@Given("User opens URL {string}")
@@ -23,6 +18,7 @@ public class DsAlgoPortalHomeSD extends BaseClass {
 
 	@Then("User should Land In DS Algo portal page")
 	public void user_should_land_in_ds_algo_portal_page() {
+
 	}
 
 	@When("User click on Get Started")
@@ -44,14 +40,15 @@ public class DsAlgoPortalHomeSD extends BaseClass {
 	}
 
 //Home Page
+
 	@Given("User opens Home Page")
 	public void user_opens_home_page() {
-		HP = new HomePage(driver);
 	}
 
 	@When("User click on Data Structures drop down")
-	public void user_click_on_data_structures_drop_down()  {
-		HP.ClickDrpdwn();
+	public void user_click_on_data_structures_drop_down() {
+		AP.ClickDrpdwn();
+		System.out.println("I clicked dropdown");
 	}
 
 	@Then("User should see six different data structure entries in that drop down")
@@ -60,12 +57,13 @@ public class DsAlgoPortalHomeSD extends BaseClass {
 
 	@When("User click any data structures item from the drop down without Sign in")
 	public void user_click_any_data_structures_item_from_the_drop_down_without_sign_in() {
-		HP.ClickArray();
+		AP.ClickArray();
 	}
 
 	@When("User click on Get Started below the data structure")
-	public void user_click_on_get_started_below_the_data_structure(){
-		HP.ClickGetstartd();
+	public void user_click_on_get_started_below_the_data_structure() {
+		AP.ClickGetstartd();
+		System.out.println("I clicked Stsrted button");
 	}
 
 	@Then("It should alert the user with the message {string}")
@@ -81,7 +79,7 @@ public class DsAlgoPortalHomeSD extends BaseClass {
 
 	@When("User click on Sign in")
 	public void user_click_on_sign_in() {
-		HP.ClickSignin();
+		AP.ClickSignin();
 	}
 
 	@Then("User should be redirected to Sign in page")
@@ -95,11 +93,10 @@ public class DsAlgoPortalHomeSD extends BaseClass {
 
 	@When("User click on Register")
 	public void user_click_on_register() {
-		HP.ClickRegistr();
+		AP.ClickRegistr();
 	}
 
 	@Then("User should be redirected to Register form")
 	public void user_should_be_redirected_to_register_form() {
 	}
-
 }
