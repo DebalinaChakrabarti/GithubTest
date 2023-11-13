@@ -1,14 +1,14 @@
 package stepDefinition;
 
 import org.openqa.selenium.WebDriver;
-
-import pageObjects.AlgoPortal;
-import pageObjects.HomePage;
+import pageObjects.AlgoPortalHome;
+import pageObjects.Register;
+import pageObjects.Sign_in;
 
 public class BaseClass {
-	
-	public WebDriver driver;
-	public AlgoPortal AP;
-	public HomePage HP;
-
+	public static WebDriver driver;
+	public String URL="https://dsportalapp.herokuapp.com";
+	public AlgoPortalHome AP;
+	public Register RG; 
+	public Sign_in Login;
 }
