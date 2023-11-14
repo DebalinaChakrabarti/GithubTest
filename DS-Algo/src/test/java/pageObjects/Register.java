@@ -7,9 +7,9 @@ import stepDefinition.BaseClass;
 public class Register extends BaseClass {
 	
 
-	public Register(WebDriver driver) {
-		//this.driver = driver;
-	}
+//	public Register(WebDriver driver) {
+//		//this.driver = driver;
+//	}
 	By regstr=By.xpath("//input[@value='Register']");
     By userName=By.xpath("//input[@name='username']");
     By password=By.xpath("//input[@name='password1']");

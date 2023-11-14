@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 import stepDefinition.BaseClass;
 
 public class AlgoPortalHome extends BaseClass {
-    public AlgoPortalHome(WebDriver driver) {
-	}
+//    public AlgoPortalHome(WebDriver driver) {
+//	}
 
 	By getStartedbtn = By.xpath("//button[text()='Get Started']");
 	By drpDwn = By.xpath("//a[@class='nav-link dropdown-toggle']");

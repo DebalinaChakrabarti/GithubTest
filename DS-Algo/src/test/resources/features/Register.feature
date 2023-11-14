@@ -33,7 +33,7 @@ Feature: Registration
     #Then It should display Change your password alert box
     When User enters valid username and password
         | Username | Password | Password confirmation |
-        | WbcdTree | pass@12word | pass@12word |
+        | WbcdTree1 | pass@12word | pass@12word |
     And  User click Register button with valid crediantials 
     Then User should be redirected to the home page with the message "New Account Created. You are logged in as "<Username>""             
     

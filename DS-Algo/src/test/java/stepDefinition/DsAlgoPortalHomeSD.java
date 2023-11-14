@@ -8,7 +8,7 @@ public class DsAlgoPortalHomeSD extends BaseClass {
 
 	@Given("User launch Chrome Browser")
 	public void user_launch_chrome_browser() {
-		AP = new AlgoPortalHome(driver);
+		AP = new AlgoPortalHome();
 	}
 
 	@Given("User opens URL {string}")

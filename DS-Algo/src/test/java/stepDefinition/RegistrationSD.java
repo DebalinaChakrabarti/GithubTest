@@ -11,7 +11,7 @@ public class RegistrationSD extends BaseClass {
 
 	@Given("User opens register page")
 	public void user_opens_register_page() {
-		RG = new Register(driver);
+		RG = new Register();
 	}
 
 	@When("User click on Register with all fields empty")
