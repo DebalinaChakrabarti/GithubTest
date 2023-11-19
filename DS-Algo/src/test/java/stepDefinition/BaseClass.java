@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import pageObjects.AlgoPortalHome;
 import pageObjects.DS_Introduction;
+import pageObjects.LinkdList;
 import pageObjects.Register;
 import pageObjects.SignIn;
 
@@ -17,6 +18,7 @@ public class BaseClass {
 	public Register RG; 
 	public SignIn objSignIn;
 	public DS_Introduction DS;
+	public LinkdList LL;
 	
 	public static WebDriver getDriver() {
 		if (driver==null) {
