@@ -1,7 +1,6 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import stepDefinition.BaseClass;
 
 public class Register extends BaseClass {
@@ -16,15 +15,15 @@ public class Register extends BaseClass {
     By pwdCnfmtn=By.xpath("//input[@name='password2']");
     
 	public void ClickRegister()  {
-		driver.findElement(regstr).click();
+		BaseClass.getDriver().findElement(regstr).click();
 	}
 	public void ClickUsername(String Username) {
-		driver.findElement(userName).sendKeys(Username);
+		BaseClass.getDriver().findElement(userName).sendKeys(Username);
 	}
 	public void ClickPassword(String Password) {
-		driver.findElement(password).sendKeys(Password);
+		BaseClass.getDriver().findElement(password).sendKeys(Password);
 	}
 	public void ClickpwdConfirmation(String pwdConfirmation) {
-		driver.findElement(pwdCnfmtn).sendKeys(pwdConfirmation);
+		BaseClass.getDriver().findElement(pwdCnfmtn).sendKeys(pwdConfirmation);
 	}
 }

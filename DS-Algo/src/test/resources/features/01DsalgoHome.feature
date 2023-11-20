@@ -23,4 +23,19 @@ Scenario: DS Algo Portal
     When User click on Register
     Then User should be redirected to Register form
     And  Page title will be "Registration"
+    #When User click on Get Started button in the data structure pane after Logged in
+    #Then The user should be directed to "Data Structures-Introduction" Page
+    #When User click on Get Started button in the Array pane after Logged in
+    #Then The user should be directed to "Array" Page
+    #When User click on Get Started button in the Linked List pane after Logged in
+    #Then The user should be directed to "Linked List" Page
+    #When User click on Get Started button in the Stack pane after Logged in
+    #Then The user should be directed to "Stack" Page
+    #When User click on Get Started button in the Queue pane after Logged in
+    #Then The user should be directed to "Queue" Page
+    #When User click on Get Started button in the Tree pane after Logged in
+    #Then The user should be directed to "Tree" Page
+    #When User click on Get Started button in the Graph pane after Logged in
+    #Then The user should be directed to "Graph" Page
+    
      

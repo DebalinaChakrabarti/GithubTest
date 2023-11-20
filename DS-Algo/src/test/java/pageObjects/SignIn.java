@@ -5,7 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class SignIn {
+import stepDefinition.BaseClass;
+
+public class SignIn extends BaseClass {
 	
 //	public WebDriver driver;
 //
@@ -14,34 +16,34 @@ public class SignIn {
 //	}
 		
 	
-	By loginUserName = By.id("id_username");
-	By loginPassword = By.id("id_password");
-	By loginButton = By.xpath("//input[@value='Login']");
-	By alertMsg = By.xpath("//div[@role='alert']");
-	By signOut = By.xpath("//a[text()='Sign out']");
+private	By loginUserName = By.id("id_username");
+private	By loginPassword = By.id("id_password");
+private	By loginButton = By.xpath("//input[@value='Login']");
+private	By alertMsg = By.xpath("//div[@role='alert']");
+private	By signOut = By.xpath("//a[text()='Sign out']");
 //	By alertMsg = By.xpath("//div[@role='alert']");
 
+	public void setUserName(String uname)
+	{
+		 BaseClass.getDriver().findElement(loginUserName).sendKeys(uname);
+	}
+	public void setPassword(String passwd)
+	{
+		BaseClass.getDriver().findElement(loginPassword).sendKeys(passwd);
+	}
+	public String getAlertMsg()
+	{
+		return BaseClass.getDriver().findElement(alertMsg).getText();
+	}
 
 	
-	public WebElement getUserName()
-	{
-		 return stepDefinition.BaseClass.driver.findElement(loginUserName);
-	}
-	public WebElement getPassword()
-	{
-		return stepDefinition.BaseClass.driver.findElement(loginPassword);
-	}
 	public void clickLoginButton()
 	{
-		stepDefinition.BaseClass.driver.findElement(loginButton).click();
-	}
-	public WebElement getAlertMsg()
-	{
-		return stepDefinition.BaseClass.driver.findElement(alertMsg);
+		BaseClass.getDriver().findElement(loginButton).click();
 	}
 	public void clickSignOut()
 	{
-		stepDefinition.BaseClass.driver.findElement(signOut).click();
+		BaseClass.getDriver().findElement(signOut).click();
 	}
 
 }

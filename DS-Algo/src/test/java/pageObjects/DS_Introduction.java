@@ -18,32 +18,32 @@ public class DS_Introduction extends BaseClass {
 	By tryHereButton = By.linkText("Try here>>>");
 
 	public void enterUsername(String Uname) {
-		driver.findElement(UserName).sendKeys(Uname);
+		BaseClass.getDriver().findElement(UserName).sendKeys(Uname);
 	}
 
 	public void enterPassword(String Pwd) {
-		driver.findElement(PassWord).sendKeys(Pwd);
+		BaseClass.getDriver().findElement(PassWord).sendKeys(Pwd);
 		;
 	}
 
 	public void clickLogin() {
-		driver.findElement(loginButton).click();
+		BaseClass.getDriver().findElement(loginButton).click();
 	}
 
 	public void clickGetStarted() {
-		driver.findElement(getStarted).click();
+		BaseClass.getDriver().findElement(getStarted).click();
 	}
 
 	public void clickTimeComplexity() {
-		driver.findElement(timeComplexity).click();
+		BaseClass.getDriver().findElement(timeComplexity).click();
 	}
 
 	public void clickPracticeQue() {
-		driver.findElement(practiceQue).click();
+		BaseClass.getDriver().findElement(practiceQue).click();
 	}
 
 	public void clickTryHere() {
-		driver.findElement(tryHereButton).click();
+		BaseClass.getDriver().findElement(tryHereButton).click();
 	}
 
 	public void getExcelData() throws IOException, InterruptedException {
@@ -53,17 +53,17 @@ public class DS_Introduction extends BaseClass {
 		for (int rownum = 2; rownum <= rowCount; rownum++) {
 			String Code = Util.getCellData("Sheet1", "Program Code", rownum);
 			String Status = Util.getCellData("Sheet1", "Running Status", rownum);
-			WebElement element = driver.findElement(By.xpath("//div[5]//div//pre"));
-			Actions act = new Actions(driver);
+			WebElement element = BaseClass.getDriver().findElement(By.xpath("//div[5]//div//pre"));
+			Actions act = new Actions(BaseClass.getDriver());
 			act.sendKeys(element, Code).build().perform();
-			driver.findElement(By.xpath("//button[@type='button']")).click();
+			BaseClass.getDriver().findElement(By.xpath("//button[@type='button']")).click();
 
 			if (Status.equalsIgnoreCase("Failure")) {
-				Alert alert = driver.switchTo().alert();
+				Alert alert = BaseClass.getDriver().switchTo().alert();
 				alert.accept();
 			}
 
-//    		JavascriptExecutor js=(JavascriptExecutor)driver;
+//    		JavascriptExecutor js=(JavascriptExecutor)BaseClass.getDriver();
 //    		js.executeScript("arguments[0].value='';", element);
 			// act.moveToElement(element).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
 			// act.moveToElement(element).keyDown(Keys.CONTROL).sendKeys("a",Keys.BACK_SPACE).keyUp(Keys.CONTROL).perform();

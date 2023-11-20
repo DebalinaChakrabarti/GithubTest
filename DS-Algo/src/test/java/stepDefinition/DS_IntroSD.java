@@ -63,7 +63,7 @@ public class DS_IntroSD extends BaseClass {
 
 	@Then("User should navigate to back")
 	public void user_should_navigate_to_back() {
-		driver.navigate().back();
+		BaseClass.getDriver().navigate().back();
 	}
 
 	@When("User click on Try here button")

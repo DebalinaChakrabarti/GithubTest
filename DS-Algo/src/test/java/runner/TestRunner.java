@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
 //@RunWith(Cucumber.class) //JUnit execution
 
 @CucumberOptions(
-		plugin = {"pretty", "html:target/test-output"}, //reporting purpose
+		plugin = {"pretty", "html:target/test-output" , "json:target/cucumber.json"}, //reporting purpose
 		monochrome=true,  //console output color
 		//tags = "  @tag1", //tags from feature file
 		features= {"src/test/resources/features"},

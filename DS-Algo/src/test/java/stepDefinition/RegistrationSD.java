@@ -21,16 +21,16 @@ public class RegistrationSD extends BaseClass {
 
 	@Then("It should display an error {string} below Username textbox")
 	public void it_should_display_an_error_below_username_textbox(String Text) {
-		String toolTip = driver.findElement(By.xpath("//input[@name='username']")).getAttribute("validationMessage");
+		String toolTip = BaseClass.getDriver().findElement(By.xpath("//input[@name='username']")).getAttribute("validationMessage");
 		Assert.assertEquals(toolTip, Text);
 	}
 
 	@When("User enters only username")
 	public void user_enters_only_username(DataTable Data) {
 		for (Map<String, String> data : Data.asMaps(String.class, String.class)) {
-			driver.findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
-			driver.findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
-			driver.findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
 		}
 	}
 
@@ -41,16 +41,16 @@ public class RegistrationSD extends BaseClass {
 
 	@Then("It should display an error {string} below Password textbox")
 	public void it_should_display_an_error_below_password_textbox(String Text) {
-		String toolTip = driver.findElement(By.xpath("//input[@name='password1']")).getAttribute("validationMessage");
+		String toolTip = BaseClass.getDriver().findElement(By.xpath("//input[@name='password1']")).getAttribute("validationMessage");
 		Assert.assertEquals(toolTip, Text);
 	}
 
 	@When("User enters username and password")
 	public void user_enters_username_and_password(DataTable Data) {
 		for (Map<String, String> data : Data.asMaps(String.class, String.class)) {
-			driver.findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
-			driver.findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
-			driver.findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
 		}
 
 	}
@@ -63,16 +63,16 @@ public class RegistrationSD extends BaseClass {
 
 	@Then("It should display an error {string} below Password confirmation textbox")
 	public void it_should_display_an_error_below_password_confirmation_textbox(String Text) {
-		String toolTip = driver.findElement(By.xpath("//input[@name='password2']")).getAttribute("validationMessage");
+		String toolTip = BaseClass.getDriver().findElement(By.xpath("//input[@name='password2']")).getAttribute("validationMessage");
 		Assert.assertEquals(toolTip, Text);
 	}
 
 	@When("User enters invalid password confirmation")
 	public void user_enters_invalid_password_confirmation(DataTable Data) {
 		for (Map<String, String> data : Data.asMaps(String.class, String.class)) {
-			driver.findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
-			driver.findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
-			driver.findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
 		}
 	}
 
@@ -83,7 +83,7 @@ public class RegistrationSD extends BaseClass {
 
 	@Then("It should display an error {string}")
 	public void it_should_display_an_error(String Msg) {
-		if (driver.getPageSource().contains(Msg)) {
+		if (BaseClass.getDriver().getPageSource().contains(Msg)) {
 			Assert.assertTrue(true);
 		} else {
 			Assert.assertTrue(false);
@@ -93,9 +93,9 @@ public class RegistrationSD extends BaseClass {
 	@When("User enters password with all numbers")
 	public void user_enters_password_with_all_numbers(DataTable Data) {
 		for (Map<String, String> data : Data.asMaps(String.class, String.class)) {
-			driver.findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
-			driver.findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
-			driver.findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
 		}
 	}
 
@@ -107,9 +107,9 @@ public class RegistrationSD extends BaseClass {
 	@When("User enters valid username and password")
 	public void user_enters_valid_username_and_password(io.cucumber.datatable.DataTable Data) {
 		for (Map<String, String> data : Data.asMaps(String.class, String.class)) {
-			driver.findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
-			driver.findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
-			driver.findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys(data.get("Username"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password1']")).sendKeys(data.get("Password"));
+			BaseClass.getDriver().findElement(By.xpath("//input[@name='password2']")).sendKeys(data.get("Password confirmation"));
 		}
 	}
 
@@ -120,6 +120,7 @@ public class RegistrationSD extends BaseClass {
 
 	@Then("User should be redirected to the home page with the message {string}<Username>{string}")
 	public void user_should_be_redirected_to_the_home_page_with_the_message_username(String Message, String Username) {
-		Assert.assertTrue(driver.findElement(By.xpath("//div[@role='alert']")).getText().contains(Message));
+		Assert.assertTrue(BaseClass.getDriver().findElement(By.xpath("//div[@role='alert']")).getText().contains(Message));
+		BaseClass.getDriver().findElement(By.linkText("Sign out")).click();
 	}
 }

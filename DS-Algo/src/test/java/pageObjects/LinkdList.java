@@ -22,43 +22,43 @@ public class LinkdList extends BaseClass {
 	By tryHere = By.linkText("Try here>>>");
 
 	public void clickGetStrtdBtn() {
-		driver.findElement(getStrtedButton).click();
+		BaseClass.getDriver().findElement(getStrtedButton).click();
 	}
 
 	public void clickIntroductn() {
-		driver.findElement(Introduction).click();
+		BaseClass.getDriver().findElement(Introduction).click();
 	}
 
 	public void clickCreatngLL() {
-		driver.findElement(creatngLnkdLst).click();
+		BaseClass.getDriver().findElement(creatngLnkdLst).click();
 	}
 
 	public void clickTypesofLL() {
-		driver.findElement(typesofLnkdLst).click();
+		BaseClass.getDriver().findElement(typesofLnkdLst).click();
 	}
 
 	public void clickImplemntLLinPython() {
-		driver.findElement(implemntLnkdLstinPython).click();
+		BaseClass.getDriver().findElement(implemntLnkdLstinPython).click();
 	}
 
 	public void clickTraversal() {
-		driver.findElement(Traversal).click();
+		BaseClass.getDriver().findElement(Traversal).click();
 	}
 
 	public void clickInsertion() {
-		driver.findElement(Insertion).click();
+		BaseClass.getDriver().findElement(Insertion).click();
 	}
 
 	public void clickDeletion() {
-		driver.findElement(Deletion).click();
+		BaseClass.getDriver().findElement(Deletion).click();
 	}
 
 	public void clickPracticeQue() {
-		driver.findElement(practiceQue).click();
+		BaseClass.getDriver().findElement(practiceQue).click();
 	}
 
 	public void clickTryHere() {
-		driver.findElement(tryHere).click();
+		BaseClass.getDriver().findElement(tryHere).click();
 	}
 
 	public void getExcelData() {
@@ -67,13 +67,13 @@ public class LinkdList extends BaseClass {
 		for (int rownum = 2; rownum <= rowCount; rownum++) {
 			String Code = Util.getCellData("Sheet1", "Program Code", rownum);
 			String Status = Util.getCellData("Sheet1", "Running Status", rownum);
-			WebElement element = driver.findElement(By.xpath("//div[5]//div//pre"));
-			Actions act = new Actions(driver);
+			WebElement element = BaseClass.getDriver().findElement(By.xpath("//div[5]//div//pre"));
+			Actions act = new Actions(BaseClass.getDriver());
 			act.sendKeys(element, Code).build().perform();
-			driver.findElement(By.xpath("//button[@type='button']")).click();
+			BaseClass.getDriver().findElement(By.xpath("//button[@type='button']")).click();
 
 			if (Status.equalsIgnoreCase("Failure")) {
-				Alert alert = driver.switchTo().alert();
+				Alert alert = BaseClass.getDriver().switchTo().alert();
 				alert.accept();
 			}
 		}

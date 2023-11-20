@@ -20,7 +20,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User should be redirected to the linked list page")
 	public void user_should_be_redirected_to_the_linked_list_page() {
-		Assert.assertEquals(driver.getTitle(), "Linked List");
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "Linked List");
 	}
 
 	@When("User click on Introduction")
@@ -30,7 +30,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User should be redirected to the introduction page of linked list")
 	public void user_should_be_redirected_to_the_introduction_page_of_linked_list() {
-		Assert.assertEquals(driver.getTitle(), "Introduction");
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "Introduction");
 	}
 
 	@When("User  will click on Try here")
@@ -50,7 +50,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User navigate to back")
 	public void user_navigate_to_back() {
-		driver.navigate().back();
+		BaseClass.getDriver().navigate().back();
 	}
 
 	@When("User click on Creating Linked List")
@@ -60,7 +60,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User should be redirected to the Creating Linked List page")
 	public void user_should_be_redirected_to_the_creating_linked_list_page() {
-		Assert.assertEquals(driver.getTitle(), "Creating Linked LIst");
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "Creating Linked LIst");
 	}
 
 	@When("User should  click on Try here button on the creating Linked List page")
@@ -75,7 +75,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User should be redirected to the Types Of Linked List page")
 	public void user_should_be_redirected_to_the_types_of_linked_list_page() {
-		Assert.assertEquals(driver.getTitle(), "Types of Linked List");
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "Types of Linked List");
 	}
 
 	@When("User should  click on Try here button on the Types of Linked List page")
@@ -90,7 +90,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User should be redirected to the Implement Linked List in Python page")
 	public void user_should_be_redirected_to_the_implement_linked_list_in_python_page() {
-		Assert.assertEquals(driver.getTitle(), "Implement Linked List in Python");
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "Implement Linked List in Python");
 	}
 
 	@When("User should  click on Try here button on the Implement Linked List page")
@@ -105,7 +105,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User should be redirected to the Traversal page")
 	public void user_should_be_redirected_to_the_traversal_page() {
-		Assert.assertEquals(driver.getTitle(), "Traversal");
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "Traversal");
 	}
 
 	@When("User should  click on Try here button on Traversal page")
@@ -120,7 +120,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User should be redirected to the Insertion page")
 	public void user_should_be_redirected_to_the_insertion_page() {
-		Assert.assertEquals(driver.getTitle(), "Insertion");
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "Insertion");
 	}
 
 	@When("User should  click on Try here button on the Insertion page")
@@ -135,7 +135,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("User should be redirected to the Deletion page")
 	public void user_should_be_redirected_to_the_deletion_page() {
-		Assert.assertEquals(driver.getTitle(), "Deletion");
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "Deletion");
 	}
 
 	@When("User should  click on Try here button on the Deletion page")
@@ -145,7 +145,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Given("User navigate to forward")
 	public void user_navigate_to_forward() {
-		driver.navigate().forward();
+		BaseClass.getDriver().navigate().forward();
 	}
 
 	@When("User click on Practice Questions")
@@ -160,7 +160,7 @@ public class LinkdListSD extends BaseClass {
 
 	@Then("Title should be {string}")
 	public void title_should_be(String title) {
-		Assert.assertEquals(driver.getTitle(), title);
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), title);
 	}
 
 }

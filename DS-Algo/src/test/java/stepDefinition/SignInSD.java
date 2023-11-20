@@ -16,15 +16,15 @@ public class SignInSD extends BaseClass {
 	
 	@Given("User is in the Sign In Page")
 	public void user_is_in_the_sign_in_page() {
-//		driver.get(url);
+//		BaseClass.getDriver().get(url);
 		objSignIn = new SignIn();
 	}
 
 	@When("I want to login with username {string} and password {string} and I clicked Login Button")
 	public void i_want_to_login_with_username_and_password_and_i_clicked_login_button(String uname, String passwd) throws InterruptedException {
 		
-		objSignIn.getUserName().sendKeys(uname);
-		objSignIn.getPassword().sendKeys(passwd);
+		objSignIn.setUserName(uname);
+		objSignIn.setPassword(passwd);
 		System.out.println("userID" + uname + " " + "password" + passwd);
 //		Thread.sleep(5000);
 		objSignIn.clickLoginButton();
@@ -80,9 +80,9 @@ public class SignInSD extends BaseClass {
 	@Then("User should redirected to the home page if {string} is success with the message {string} {string}")
 	public void user_should_redirected_to_the_home_page_if_is_success_with_the_message(String status, String uname, String msg) throws InterruptedException {
 		if(status.equalsIgnoreCase("success")) {
-		Assert.assertEquals(driver.getTitle(), "NumpyNinja");
-		Assert.assertTrue(objSignIn.getAlertMsg().getText().contains(msg));
-		if(driver.getTitle().equalsIgnoreCase("NumpyNinja")) { 
+		Assert.assertEquals(BaseClass.getDriver().getTitle(), "NumpyNinja");
+		Assert.assertTrue(objSignIn.getAlertMsg().contains(msg));
+		if(BaseClass.getDriver().getTitle().equalsIgnoreCase("NumpyNinja")) { 
 			System.out.println(uname + " " + msg);			
 		}
 //		Thread.sleep(5000);
