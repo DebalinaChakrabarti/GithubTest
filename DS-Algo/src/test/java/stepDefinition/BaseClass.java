@@ -13,6 +13,7 @@ import pageObjects.QueuePO;
 import pageObjects.Register;
 import pageObjects.SignIn;
 import pageObjects.Stacks;
+import pageobject.Tree;
 
 public class BaseClass {
 	private static WebDriver driver;
@@ -24,7 +25,7 @@ public class BaseClass {
 	public Stacks objStacks;
 	public QueuePO objQueue;
 	public LinkdList LL;
-	
+	public Tree TP;
 	public static WebDriver getDriver()
 	{
 	if(driver == null) {
