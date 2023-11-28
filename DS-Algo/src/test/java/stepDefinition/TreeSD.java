@@ -6,8 +6,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobject.LinkdList;
-import pageobject.Tree;
+import pageObjects.LinkdList;
+import pageObjects.Tree;
 
 public class TreeSD  extends BaseClass{
 	   
