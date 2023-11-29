@@ -5,11 +5,15 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -202,6 +206,15 @@ public class ArraySD extends BaseClass {
 	@When("User clicks on the Squares of a Sorted Array option")
 	public void user_clicks_on_the_squares_of_a_sorted_array_option() {
         array.ClickquesD();
+	}
+	
+	@After
+	public void takeScreenshotonFailure(Scenario scenario) {
+		if(scenario.isFailed()) {
+			String screenshotName=scenario.getName().replaceAll(" ", "-");
+			byte[]sourcePath=((TakesScreenshot)BaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(sourcePath, "image/png", screenshotName);
+		}
 	}
 
 	
