@@ -15,6 +15,7 @@ import pageObjects.Register;
 import pageObjects.SignIn;
 import pageObjects.Stacks;
 import pageObjects.Tree;
+import pageObjects.Graph;
 
 public class BaseClass {
 	public static WebDriver driver;
@@ -29,6 +30,7 @@ public class BaseClass {
 	public DS_Array array;
 	public static Logger logger;
 	public Tree TP;
+	public Graph GP;
 	
 	
 	public static WebDriver getDriver()

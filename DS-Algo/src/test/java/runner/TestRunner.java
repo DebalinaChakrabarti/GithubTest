@@ -29,7 +29,7 @@ import utilities.ConfigReader;
 		//tags = "  @tag1", //tags from feature file
 		features= {"src/test/resources/features"},
 		glue= {"stepDefinition"
-//				,"cucumberHooks"
+				,"cucumberHooks"
 				}, //location of step definition files
 		dryRun=false
 		)

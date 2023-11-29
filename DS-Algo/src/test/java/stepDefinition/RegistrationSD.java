@@ -2,8 +2,14 @@ package stepDefinition;
 
 import java.util.Map;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
+
+
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
 import pageObjects.Register;
 
@@ -122,5 +128,14 @@ public class RegistrationSD extends BaseClass {
 	public void user_should_be_redirected_to_the_home_page_with_the_message_username(String Message, String Username) {
 		Assert.assertTrue(BaseClass.getDriver().findElement(By.xpath("//div[@role='alert']")).getText().contains(Message));
 		BaseClass.getDriver().findElement(By.linkText("Sign out")).click();
+	}
+	
+	@After
+	public void takeScreenshotonFailure(Scenario scenario) {
+		if(scenario.isFailed()) {
+			String screenshotName=scenario.getName().replaceAll(" ", "-");
+			byte[]sourcePath=((TakesScreenshot)BaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(sourcePath, "image/png", screenshotName);
+		}
 	}
 }

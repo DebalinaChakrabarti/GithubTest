@@ -19,44 +19,31 @@ import utilities.DriverFactory;
 
 public class DSalgoHooks extends BaseClass {
 	
-	@BeforeAll
-
-	public static void before() throws Throwable {
-
-	//Get browser Type from config file
-
-	LoggerLoad.info("Loading Config file");
-
-//	ConfigReader.loadConfig();
-
-	String browser = ConfigReader.getBrowserType();
-
-	//Initialize driver from driver factory
-
-	DriverFactory driverfactory = new DriverFactory();
-
-	driver = driverfactory.initializeDrivers(browser);
-
-	LoggerLoad.info("Initializing driver for : "+browser);
-
-	}
-	
+//uncomment this below method for cross browser testing	
 	
 //	@BeforeAll
-//	@Test
-//	@Parameters({"browser"})
-//	public static void beforeAll(String browserName) {
-//		if(getDriver() == null) {
-//			if(browserName.equalsIgnoreCase("safari"))
-//				setDriver(new SafariDriver());
-//			else if(browserName.equalsIgnoreCase("chrome"))
-//				setDriver(new ChromeDriver());
-//		}
-//		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-//		getDriver().manage().window().maximize();
-////		}
-//	}
 //
+//	public static void before() throws Throwable {
+//
+//	//Get browser Type from config file
+//
+//	LoggerLoad.info("Loading Config file");
+//
+////	ConfigReader.loadConfig();
+//
+//	String browser = ConfigReader.getBrowserType();
+//
+//	//Initialize driver from driver factory
+//
+//	DriverFactory driverfactory = new DriverFactory();
+//
+//	driver = driverfactory.initializeDrivers(browser);
+//
+//	LoggerLoad.info("Initializing driver for : "+browser);
+//
+//	}
+	
+	
 	@AfterAll
 	public static void after() {
 		if (getDriver() != null) {
