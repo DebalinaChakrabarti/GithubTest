@@ -14,7 +14,8 @@ import utilities.ConfigReader;
 //@RunWith(Cucumber.class) //JUnit execution
 
 @CucumberOptions(
-		plugin = {"pretty", "html:target/test-output",
+		plugin = {"pretty", "html:target/test-output"
+				,"html:target/cucumber-reports.html" ,
 				"json:target/cucumber.json",
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"

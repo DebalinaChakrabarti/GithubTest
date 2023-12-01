@@ -1,5 +1,7 @@
 package stepDefinition;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.AssertJUnit;
 import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -28,7 +30,7 @@ public class RegistrationSD extends BaseClass {
 	@Then("It should display an error {string} below Username textbox")
 	public void it_should_display_an_error_below_username_textbox(String Text) {
 		String toolTip = BaseClass.getDriver().findElement(By.xpath("//input[@name='username']")).getAttribute("validationMessage");
-		Assert.assertEquals(toolTip, Text);
+		AssertJUnit.assertEquals(toolTip, Text);
 	}
 
 	@When("User enters only username")
@@ -48,7 +50,7 @@ public class RegistrationSD extends BaseClass {
 	@Then("It should display an error {string} below Password textbox")
 	public void it_should_display_an_error_below_password_textbox(String Text) {
 		String toolTip = BaseClass.getDriver().findElement(By.xpath("//input[@name='password1']")).getAttribute("validationMessage");
-		Assert.assertEquals(toolTip, Text);
+		AssertJUnit.assertEquals(toolTip, Text);
 	}
 
 	@When("User enters username and password")
@@ -70,7 +72,7 @@ public class RegistrationSD extends BaseClass {
 	@Then("It should display an error {string} below Password confirmation textbox")
 	public void it_should_display_an_error_below_password_confirmation_textbox(String Text) {
 		String toolTip = BaseClass.getDriver().findElement(By.xpath("//input[@name='password2']")).getAttribute("validationMessage");
-		Assert.assertEquals(toolTip, Text);
+		AssertJUnit.assertEquals(toolTip, Text);
 	}
 
 	@When("User enters invalid password confirmation")
@@ -90,9 +92,9 @@ public class RegistrationSD extends BaseClass {
 	@Then("It should display an error {string}")
 	public void it_should_display_an_error(String Msg) {
 		if (BaseClass.getDriver().getPageSource().contains(Msg)) {
-			Assert.assertTrue(true);
+			AssertJUnit.assertTrue(true);
 		} else {
-			Assert.assertTrue(false);
+			AssertJUnit.assertTrue(false);
 		}
 	}
 
@@ -126,16 +128,16 @@ public class RegistrationSD extends BaseClass {
 
 	@Then("User should be redirected to the home page with the message {string}<Username>{string}")
 	public void user_should_be_redirected_to_the_home_page_with_the_message_username(String Message, String Username) {
-		Assert.assertTrue(BaseClass.getDriver().findElement(By.xpath("//div[@role='alert']")).getText().contains(Message));
+		AssertJUnit.assertTrue(BaseClass.getDriver().findElement(By.xpath("//div[@role='alert']")).getText().contains(Message));
 		BaseClass.getDriver().findElement(By.linkText("Sign out")).click();
 	}
 	
-	@After
-	public void takeScreenshotonFailure(Scenario scenario) {
-		if(scenario.isFailed()) {
-			String screenshotName=scenario.getName().replaceAll(" ", "-");
-			byte[]sourcePath=((TakesScreenshot)BaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
-			scenario.attach(sourcePath, "image/png", screenshotName);
-		}
-	}
+//	@After
+//	public void takeScreenshotonFailure(Scenario scenario) {
+//		if(scenario.isFailed()) {
+//			String screenshotName=scenario.getName().replaceAll(" ", "-");
+//			byte[]sourcePath=((TakesScreenshot)BaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
+//			scenario.attach(sourcePath, "image/png", screenshotName);
+//		}
+//	}
 }

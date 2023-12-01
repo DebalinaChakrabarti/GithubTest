@@ -1,5 +1,7 @@
 package stepDefinition;
 
+import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
@@ -46,7 +48,7 @@ public class ArraySD extends BaseClass {
 	@Then("The page title is {string}")
 	public void the_page_title_is(String title) {
        String header= BaseClass.getDriver().getTitle();
-       Assert.assertEquals(header, title);
+       AssertJUnit.assertEquals(header, title);
        System.out.println(header);
 	}
 
@@ -59,7 +61,7 @@ public class ArraySD extends BaseClass {
 	@Then("The user is navigated to the page where the header is {string}")
 	public void the_user_is_navigated_to_the_page_where_the_header_is(String header) {
 		String titleofpage = BaseClass.getDriver().getTitle();
-        Assert.assertEquals(titleofpage,header);  
+        AssertJUnit.assertEquals(titleofpage,header);  
         System.out.println(titleofpage);
 	}
 
@@ -179,7 +181,7 @@ public class ArraySD extends BaseClass {
 	  public void the_result_displayed_is(String result) throws InterruptedException {
 		Thread.sleep(400);
 		 String Submitresult = array.Getresult();
-	        Assert.assertEquals(Submitresult,result);
+	        AssertJUnit.assertEquals(Submitresult,result);
 	        
 	}
     
@@ -208,14 +210,14 @@ public class ArraySD extends BaseClass {
         array.ClickquesD();
 	}
 	
-	@After
-	public void takeScreenshotonFailure(Scenario scenario) {
-		if(scenario.isFailed()) {
-			String screenshotName=scenario.getName().replaceAll(" ", "-");
-			byte[]sourcePath=((TakesScreenshot)BaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
-			scenario.attach(sourcePath, "image/png", screenshotName);
-		}
-	}
+//	@After
+//	public void takeScreenshotonFailure(Scenario scenario) {
+//		if(scenario.isFailed()) {
+//			String screenshotName=scenario.getName().replaceAll(" ", "-");
+//			byte[]sourcePath=((TakesScreenshot)BaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
+//			scenario.attach(sourcePath, "image/png", screenshotName);
+//		}
+//	}
 
 	
 }

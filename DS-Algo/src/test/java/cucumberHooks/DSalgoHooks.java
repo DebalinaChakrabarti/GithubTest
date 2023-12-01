@@ -2,6 +2,8 @@ package cucumberHooks;
 
 import java.time.Duration;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -12,6 +14,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
+import io.cucumber.java.Scenario;
 import log4j.LoggerLoad;
 import stepDefinition.BaseClass;
 import utilities.ConfigReader;
@@ -42,6 +45,15 @@ public class DSalgoHooks extends BaseClass {
 //	LoggerLoad.info("Initializing driver for : "+browser);
 //
 //	}
+
+	@After
+	public void takeScreenshotonFailure(Scenario scenario) {
+		if(scenario.isFailed()) {
+			String screenshotName=scenario.getName().replaceAll(" ", "-");
+			byte[]sourcePath=((TakesScreenshot)BaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(sourcePath, "image/png", screenshotName);
+		}
+	}
 	
 	
 	@AfterAll
