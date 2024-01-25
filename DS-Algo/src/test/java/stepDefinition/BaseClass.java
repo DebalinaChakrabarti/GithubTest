@@ -62,11 +62,11 @@ public class BaseClass {
 	
 	public static void goForward()
 	{
-		driver.navigate().back();
+		driver.navigate().forward();
 	}
 	public static void goBack()
 	{
-		driver.navigate().forward();
+		driver.navigate().back();
 	}
 	
 }
