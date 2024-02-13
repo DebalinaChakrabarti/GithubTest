@@ -59,7 +59,7 @@ public class BaseClass {
 		}
 		
 	}
-	
+//for	forward
 	public static void goForward()
 	{
 		driver.navigate().forward();
